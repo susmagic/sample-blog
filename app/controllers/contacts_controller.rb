@@ -6,9 +6,17 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
+
+    if @contact.valid?
+      @contact.save
+    else
+      #возвращаем страницу new
+      render action: 'new'
+    end
+
   end
 
+  #сохраняем аттрибуты
   private
 
   def contact_params
