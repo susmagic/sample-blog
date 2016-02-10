@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       @article.save
+      redirect_to @article
     else
       #возвращаем страницу new
       render action: 'new'
