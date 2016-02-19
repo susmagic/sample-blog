@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!. :only => [:create]
+  before_filter :authenticate_user!, :only => [:create]
 
   def create
     @article = Article.find(params[:article_id])
     @article.comments.create(comment_params)
 
-    redirect_to articles_path(@article)
+    redirect_to @article
   end
 
   private
