@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
+    #require требует наличия параметра - comment
+    #permit ставит ограничения по свойствам
     params.require(:comment).permit(:author, :body)
   end
 
