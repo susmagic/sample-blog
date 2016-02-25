@@ -11,4 +11,13 @@ describe Article do
     it { should have_many :comments }
   end
 
+  describe "#subject" do
+    it "returns the article title" do
+      #создаем объект article хитрым способом
+      article = create(:article, title: 'Lorem Ipsun')
+
+      #assert проверка
+      expect(article.subject).to eq 'Lorem Ipsun'
+    end
+  end 
 end
